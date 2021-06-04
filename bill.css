@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #27ae60;
+}
+
+.client-company-info input {
+  background-color: white;
+  width: 24vw;
+  padding-left: 10px;
+  border: none;
+  outline: none;
+  color: #27ae60;
+  height: 3rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+table,
+tr,
+td,
+th {
+  outline: none;
+  background-color: white;
+  border: 1px solid;
+  color: #2ecc71;
+  border-collapse: collapse;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+  margin: auto;
+}
+
+.bill-table-container {
+  text-align: center;
+}
+
+.bill-container {
+  background-color: white;
+  box-shadow: 0px 0px 20px 5px #00000099;
+  padding: 2rem;
+  width: 80vw;
+  margin: auto;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+}
+
+th {
+  background-color: #2ecc71;
+  color: white;
+}
+
+td button {
+  background-color: #e74c3c;
+  border: none;
+  padding: 8px;
+  color: white;
+}
+
+.add-new-item-btn {
+  height: 6vh;
+  width: 20vw;
+  font-size: 1.2rem;
+  color: white;
+  border: none;
+  background-color: #16a085;
+}
+
+.total {
+  color: #27ae60;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-right: 20px;
+  font-size: 1.5rem;
+  background-color: white;
+  text-align: end;
+}
+
+#generate-bill,
+#old-bills {
+  font-size: 1.2rem;
+  padding: 10px;
+  border: none;
+  background-color: white;
+  color: #27ae60;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}

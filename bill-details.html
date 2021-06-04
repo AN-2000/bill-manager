@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="bill.css" />
+  </head>
+  <body>
+    <div class="client-company-info">
+      <input
+        type="text"
+        class="client-company-name"
+        placeholder="Client Name"
+      />
+      <input
+        type="text"
+        class="client-company-address"
+        placeholder="Client Address"
+      />
+      <input
+        type="text"
+        class="client-company-gst"
+        placeholder="Client GSTIN"
+      />
+      <input type="date" class="bill-date" placeholder="Date" />
+    </div>
+    <div class="bill-container">
+      <div class="bill-table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Item Name</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>CGST</th>
+              <th>SGCT</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <button class="add-new-item-btn">Add new item</button>
+      </div>
+      <p class="total">Total (Rs <span class="amount"></span>)</p>
+    </div>
+    <button id="generate-bill">Generate Bill</button>
+    <button id="old-bills">View old bills</button>
+    <script src="billing.js"></script>
+  </body>
+</html>

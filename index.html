@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="company-listings-container">
+      <button class="create-company-profile-btn">
+        Create New Company Profile
+      </button>
+      <ul></ul>
+    </div>
+    <div style="display: none" class="create-new-company-listing">
+      <form class="new-company-form">
+        <h2>Company Profile</h2>
+        <input
+          placeholder="Company Name"
+          type="text"
+          id="new-company-name"
+          name="new-company-name"
+        />
+        <br />
+        <input
+          placeholder="GSTIN"
+          type="text"
+          id="new-company-gst"
+          name="new-company-gst"
+        />
+        <br />
+        <input
+          placeholder="Company Address"
+          type="text"
+          id="new-company-address"
+          name="new-company-address"
+          required
+        />
+        <br />
+        <input
+          placeholder="City"
+          type="text"
+          id="new-company-city"
+          name="new-company-city"
+          required
+        />
+        <br />
+        <input
+          placeholder="State"
+          type="text"
+          id="new-company-state"
+          name="new-company-state"
+          required
+        />
+        <br />
+        <input type="submit" value="Submit" />
+        <br />
+        <input type="button" value="Cancel" />
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

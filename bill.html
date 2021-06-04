@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      button {
+        position: absolute;
+        right: 10px;
+        height: 3rem;
+        width: 8rem;
+        font-size: 1.5rem;
+      }
+      #print {
+        bottom: 20px;
+      }
+      #new-bill {
+        height: 4rem;
+        bottom: 80px;
+      }
+      #back{
+        bottom: 160px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <button id="print">Print</button>
+    <button id="new-bill">Main Menu</button>
+    <button id="back">Back</button>
+  </body>
+  <script>
+    let canvas = document.querySelector("canvas");
+    let pBtn = document.querySelector("#print");
+    let nBtn = document.querySelector("#new-bill");
+    let bBtn = document.querySelector("#back");
+    bBtn.addEventListener("click",function(){
+      location.assign("bill-details.html")
+    })
+    pBtn.addEventListener("click", function () {
+      window.print();
+    });
+
+    nBtn.addEventListener("click", function () {
+      sessionStorage.clear();
+      location.assign("index.html");
+    });
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let ctx = canvas.getContext("2d");
+    ctx.rect(200, 0, canvas.width - 400, canvas.height);
+    ctx.rect(200, canvas.height * 0.4, canvas.width - 400, canvas.height * 0.6);
+    ctx.rect(200, canvas.height * 0.4, canvas.width - 400, canvas.height * 0.1);
+    ctx.rect(200, canvas.height * 0.9, canvas.width - 400, canvas.height * 0.1);
+    ctx.stroke();
+
+    let companyId = sessionStorage.getItem("company-id");
+    let gstDatabase = JSON.parse(localStorage.getItem("gstDatabase"));
+    let index = gstDatabase.findIndex(function (e) {
+      return e.id == companyId;
+    });
+
+    ctx.font = "30px Arial";
+    ctx.fillText("Tax Invoice", canvas.width / 2 - 75, 50, 150);
+    ctx.font = "25px Arial";
+    ctx.fillText(gstDatabase[index].name, 220, 100, 220);
+    ctx.font = "20px Arial";
+    ctx.fillText("GSTIN- " + gstDatabase[index].gst, 220, 140, 300);
+    ctx.fillText(gstDatabase[index].address, 220, 170, 300);
+    ctx.fillText(gstDatabase[index].city, 220, 200, 220);
+    ctx.fillText(gstDatabase[index].state, 220, 230, 220);
+
+    ctx.font = "25px Arial";
+    ctx.fillText(
+      sessionStorage.getItem("clientName"),
+      canvas.width - 200 - 300 - 10,
+      100,
+      220
+    );
+    ctx.font = "20px Arial";
+    let cGst = sessionStorage.getItem("clientGST");
+    if (!cGst) cGst = "";
+    ctx.fillText(cGst, canvas.width - 200 - 300 - 10, 140, 220);
+    ctx.fillText(
+      sessionStorage.getItem("clientAddress"),
+      canvas.width - 200 - 300 - 10,
+      170,
+      300
+    );
+
+    ctx.fillText("Date - " +sessionStorage.getItem("bill-date"), canvas.width / 2 - 75, 200, 150);
+
+    ctx.moveTo(500, canvas.height * 0.4);
+    ctx.lineTo(500, canvas.height * 0.9);
+    ctx.moveTo(600, canvas.height * 0.4);
+    ctx.lineTo(600, canvas.height * 0.9);
+    ctx.moveTo(700, canvas.height * 0.4);
+    ctx.lineTo(700, canvas.height * 0.9);
+    ctx.moveTo(800, canvas.height * 0.4);
+    ctx.lineTo(800, canvas.height * 0.9);
+    ctx.moveTo(900, canvas.height * 0.4);
+    ctx.lineTo(900, canvas.height);
+    ctx.stroke();
+
+    ctx.fillText("Item Name", 350 - 75, canvas.height * 0.45, 150);
+    ctx.fillText("Qty", 550 - 15, canvas.height * 0.45, 30);
+    ctx.fillText("Price", 650 - 20, canvas.height * 0.45, 40);
+    ctx.fillText("CGST", 750 - 20, canvas.height * 0.45, 40);
+    ctx.fillText("SGST", 850 - 20, canvas.height * 0.45, 40);
+    ctx.fillText(
+      "Amount",
+      (canvas.width + 900 - 200) / 2 - 30,
+      canvas.height * 0.45,
+      60
+    );
+
+    ctx.fillText("Total", 350 - 75, canvas.height * 0.95, 150);
+    ctx.fillText(
+      "Rs. " + sessionStorage.getItem("total"),
+      (canvas.width + 900 - 200) / 2 - 40,
+      canvas.height * 0.95,
+      80
+    );
+
+    let data = JSON.parse(sessionStorage.getItem("currentBillItems"));
+    let verticalPos = 0.55;
+    for (let i = 0; i < data.length; i++) {
+      ctx.fillText(data[i].name, 350 - 75, canvas.height * verticalPos, 150);
+      ctx.fillText(data[i].qty, 550 - 15, canvas.height * verticalPos, 30);
+      ctx.fillText(data[i].price, 650 - 20, canvas.height * verticalPos, 40);
+      ctx.fillText(
+        data[i].CGST + "%",
+        750 - 20,
+        canvas.height * verticalPos,
+        40
+      );
+      ctx.fillText(
+        data[i].SGST + "%",
+        850 - 20,
+        canvas.height * verticalPos,
+        40
+      );
+      ctx.fillText(
+        "Rs. " + data[i].amount,
+        (canvas.width + 900 - 200) / 2 - 30,
+        canvas.height * verticalPos,
+        60
+      );
+      verticalPos += 0.05;
+    }
+
+    
+  </script>
+</html>

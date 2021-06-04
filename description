@@ -1,0 +1,10 @@
+open page => company profile load old or add new 
+Inside that add the other person details 
+then add product details and generate bill(give option of different bill formats)
+option to preview and download bill, also all bills are stored in a company profile 
+
+if suppose person was filling a bill and go back to select company the details are still in session so autofill the already saved details 
+we have 2 columns in billing, cgst and sgst if one is filled other should update with itself
+Entering item quantity and price and gst should update the amount value everywhere in its column as well as in total
+
+Bill refresh krne pr ek bug h itemid = 1 hojata h but saved data me nhi hoga aisa to jha saved data check kr rhe h wha item id nikalkr update bhi krdete hai 

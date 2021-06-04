@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232ecc71' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.create-company-profile-btn,
+ul {
+  margin: auto;
+  margin-top: 2rem;
+  display: block;
+}
+
+.create-company-profile-btn {
+  width: 30rem;
+  font-size: 1.3rem;
+  height: 4rem;
+  border: none;
+}
+
+.create-company-profile-btn,
+li,
+.new-company-form {
+  background-color: white;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+}
+
+li {
+  border-radius: 10px;
+  color: #27ae60;
+  margin-top: 1.2rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 2px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+ul {
+  width: 35rem;
+  text-align: center;
+  padding: 0;
+  list-style: none;
+}
+
+.new-company-form {
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 1.5rem;
+  height: 80vh;
+  margin: auto;
+  width: 80vw;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 10vh;
+}
+
+.new-company-form input {
+  width: 20rem;
+  height: 3rem;
+  outline: none;
+}
+
+.new-company-form input[value="Submit"] {
+  width: 20rem;
+  height: 3rem;
+  background-color: #27ae60;
+}
+
+.new-company-form input[value="Cancel"] {
+  width: 20rem;
+  height: 3rem;
+  background-color: #e74c3c;
+}
+
+.new-company-form input[value="Cancel"],
+.new-company-form input[value="Submit"] {
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 32px;
+  background-color: #e74c3c;
+  color: white;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  right: 8px;
+  border: none;
+}
+
+h2{
+  color: #27ae60;
+}
